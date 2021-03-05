@@ -42,11 +42,11 @@ class _ChewieAudioDemoState extends State<ChewieAudioDemo> {
   }
 
   Future<void> initializePlayer() async {
-    _videoPlayerController1 =
-        VideoPlayerController.network('https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4');
+    _videoPlayerController1 = VideoPlayerController.network(
+        'https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4');
     await _videoPlayerController1.initialize();
-    _videoPlayerController2 =
-        VideoPlayerController.network('https://www.sample-videos.com/video123/mp4/480/asdasdas.mp4');
+    _videoPlayerController2 = VideoPlayerController.network(
+        'https://www.sample-videos.com/video123/mp4/480/asdasdas.mp4');
     _chewieAudioController = ChewieAudioController(
       videoPlayerController: _videoPlayerController1,
       autoPlay: true,
@@ -79,7 +79,9 @@ class _ChewieAudioDemoState extends State<ChewieAudioDemo> {
           children: <Widget>[
             Expanded(
               child: Center(
-                child: _chewieAudioController != null && _chewieAudioController.videoPlayerController.value.initialized
+                child: _chewieAudioController != null &&
+                        _chewieAudioController
+                            .videoPlayerController.value.isInitialized
                     ? ChewieAudio(
                         controller: _chewieAudioController,
                       )
